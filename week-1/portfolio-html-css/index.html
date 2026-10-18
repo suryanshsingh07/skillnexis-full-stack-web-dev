@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Suryansh Singh — Full Stack Developer. CS undergraduate with hands-on internship experience in React.js, Node.js, and MongoDB. Available for opportunities." />
+  <meta name="keywords" content="Suryansh Singh, Full Stack Developer, React.js, Node.js, MongoDB, MERN, Web Developer, Lucknow" />
+  <meta property="og:title" content="Suryansh Singh — Full Stack Developer" />
+  <meta property="og:description" content="CS undergraduate and Full Stack Developer building AI-integrated web applications, reusable UI components, and scalable backends." />
+  <meta property="og:type" content="website" />
+  <title>Suryansh Singh — Full Stack Developer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Suryansh Singh — Home">
+          <span>&lt;</span>Suryansh<span>/&gt;</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="nav-links" id="nav-desktop">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#contact" class="nav-cta nav-link">Contact</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-mobile"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="nav-mobile" role="menu" aria-label="Mobile navigation">
+      <a href="#about"      role="menuitem" class="nav-mobile-link">About</a>
+      <a href="#skills"     role="menuitem" class="nav-mobile-link">Skills</a>
+      <a href="#experience" role="menuitem" class="nav-mobile-link">Experience</a>
+      <a href="#projects"   role="menuitem" class="nav-mobile-link">Projects</a>
+      <a href="#education"  role="menuitem" class="nav-mobile-link">Education</a>
+      <a href="#contact"    role="menuitem" class="nav-mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="hero-badge" aria-label="Open to opportunities">
+            Open to Opportunities
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Suryansh<br /><span class="accent">Singh</span>
+          </h1>
+
+          <p class="hero-role">Full Stack Developer</p>
+
+          <p class="hero-desc">
+            CS undergraduate building practical web applications with React.js, Node.js, and MongoDB.
+            I've contributed to AI-integrated platforms and NGO software during internships, and I
+            care about writing code that's maintainable, accessible, and genuinely useful.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" id="hero-cta-projects">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+              View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline" id="hero-cta-contact">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+              Get in Touch
+            </a>
+          </div>
+
+          <div class="hero-links" role="list" aria-label="Professional profiles">
+            <a
+              href="https://github.com/suryanshsingh07"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-link"
+              role="listitem"
+              aria-label="GitHub profile (opens in new tab)"
+            >
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/suryansh-singh-thakur"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-link"
+              role="listitem"
+              aria-label="LinkedIn profile (opens in new tab)"
+            >
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a
+              href="https://suryanshsingh.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-link"
+              role="listitem"
+              aria-label="Portfolio website (opens in new tab)"
+            >
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>scroll</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <p class="section-label">Background</p>
+        <h2 class="section-title" id="about-title">About Me</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm a Computer Science undergraduate at Shri Ramswaroop Memorial University, Barabanki,
+              focused on full-stack web development with the MERN stack. Over the past several months,
+              I've had the opportunity to work as a web developer intern at two organisations, where I
+              contributed to real-world projects rather than toy examples.
+            </p>
+            <p>
+              At <span class="about-highlight">Zaalima Development</span>, I built responsive UI components and improved
+              component architecture as part of a five-member team. At <span class="about-highlight">Suvidha Foundation</span>,
+              I worked on an NGO platform covering donor management, internship applications, and internal
+              employee workflows—three distinct operational modules.
+            </p>
+            <p>
+              My interests beyond web development include Data Structures and Algorithms, Object-Oriented
+              Programming, and software design. I genuinely enjoy the problem-solving side of engineering:
+              understanding why something isn't working is often more interesting than the fix itself.
+            </p>
+            <p>
+              I'm currently looking for internship or junior developer roles where I can keep growing
+              within a team that values clean code and practical outcomes.
+            </p>
+          </div>
+
+          <div class="about-meta">
+            <div class="meta-item">
+              <div class="meta-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              </div>
+              <div>
+                <p class="meta-label">Location</p>
+                <p class="meta-value">Lucknow, Uttar Pradesh, India</p>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+              </div>
+              <div>
+                <p class="meta-label">Education</p>
+                <p class="meta-value">B.Tech CSE — SRMU, Barabanki</p>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" /></svg>
+              </div>
+              <div>
+                <p class="meta-label">Experience</p>
+                <p class="meta-value">5+ months internship experience</p>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+              </div>
+              <div>
+                <p class="meta-label">Email</p>
+                <p class="meta-value">suryanshsinghchauhanthakur@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              </div>
+              <div>
+                <p class="meta-label">Phone</p>
+                <p class="meta-value">+91 88745 18917</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="section-label">Technical Skills</p>
+        <h2 class="section-title" id="skills-title">What I Work With</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="skills-grid">
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
+              </div>
+              <span class="skill-category-name">Programming Languages</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Programming language skills">
+              <span class="chip" role="listitem">JavaScript (ES6+)</span>
+              <span class="chip" role="listitem">Java</span>
+              <span class="chip" role="listitem">Python</span>
+              <span class="chip" role="listitem">C</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+              </div>
+              <span class="skill-category-name">Frontend</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Frontend skills">
+              <span class="chip" role="listitem">React.js</span>
+              <span class="chip" role="listitem">HTML5</span>
+              <span class="chip" role="listitem">CSS3</span>
+              <span class="chip" role="listitem">Tailwind CSS</span>
+              <span class="chip" role="listitem">Vite</span>
+              <span class="chip" role="listitem">React Router</span>
+              <span class="chip" role="listitem">Responsive UI</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>
+              </div>
+              <span class="skill-category-name">Backend</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Backend skills">
+              <span class="chip" role="listitem">Node.js</span>
+              <span class="chip" role="listitem">Express.js</span>
+              <span class="chip" role="listitem">REST APIs</span>
+              <span class="chip" role="listitem">JWT Auth</span>
+              <span class="chip" role="listitem">Multer</span>
+              <span class="chip" role="listitem">Server Architecture</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
+              </div>
+              <span class="skill-category-name">Databases</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Database skills">
+              <span class="chip" role="listitem">MongoDB</span>
+              <span class="chip" role="listitem">MongoDB Atlas</span>
+              <span class="chip" role="listitem">Firebase Firestore</span>
+              <span class="chip" role="listitem">Supabase</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
+              </div>
+              <span class="skill-category-name">AI Integration</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="AI integration skills">
+              <span class="chip" role="listitem">Gemini API</span>
+              <span class="chip" role="listitem">RAG Systems</span>
+              <span class="chip" role="listitem">Vector Search</span>
+              <span class="chip" role="listitem">AI Workflow Design</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>
+              </div>
+              <span class="skill-category-name">Tools &amp; Deployment</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Tools and deployment skills">
+              <span class="chip" role="listitem">Git &amp; GitHub</span>
+              <span class="chip" role="listitem">VS Code</span>
+              <span class="chip" role="listitem">Postman</span>
+              <span class="chip" role="listitem">Vercel</span>
+              <span class="chip" role="listitem">Netlify</span>
+              <span class="chip" role="listitem">Firebase</span>
+              <span class="chip" role="listitem">Render</span>
+              <span class="chip" role="listitem">AWS S3</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" /></svg>
+              </div>
+              <span class="skill-category-name">State Management</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="State management skills">
+              <span class="chip" role="listitem">Recoil</span>
+              <span class="chip" role="listitem">Context API</span>
+              <span class="chip" role="listitem">React Query</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+              </div>
+              <span class="skill-category-name">Core Concepts</span>
+            </div>
+            <div class="skill-chips" role="list" aria-label="Core concept skills">
+              <span class="chip" role="listitem">DSA</span>
+              <span class="chip" role="listitem">OOP</span>
+              <span class="chip" role="listitem">Debugging</span>
+              <span class="chip" role="listitem">Software Design</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <p class="section-label">Work History</p>
+        <h2 class="section-title" id="experience-title">Experience</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="timeline" role="list" aria-label="Professional experience timeline">
+
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <header class="timeline-header">
+                <h3 class="timeline-role">Web Developer Intern</h3>
+                <p class="timeline-org">Zaalima Development Pvt. Ltd.</p>
+                <time class="timeline-period" datetime="2026-04/2026-06">April 2026 – June 2026</time>
+              </header>
+              <ul class="timeline-points">
+                <li>Developed 15+ responsive UI components using React.js and Tailwind CSS.</li>
+                <li>Collaborated with a five-member team to improve reusable component architecture and mobile responsiveness.</li>
+                <li>Used Git and GitHub for version control and participated in peer code reviews.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <header class="timeline-header">
+                <h3 class="timeline-role">Web Developer Intern</h3>
+                <p class="timeline-org">Suvidha Foundation</p>
+                <time class="timeline-period" datetime="2026-03/2026-04">March 2026 – April 2026</time>
+              </header>
+              <ul class="timeline-points">
+                <li>Developed modules for an NGO platform covering donor management, internship applications, and internal employee workflows.</li>
+                <li>Worked with role-based application architecture across more than three operational modules using React.js and JavaScript.</li>
+                <li>Improved mobile accessibility and cross-device UI consistency.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title" id="projects-title">Projects</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="projects-grid">
+
+          <!-- OpsMind AI -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">🧠</div>
+              <span class="project-status active">Active</span>
+            </div>
+            <h3 class="project-name">OpsMind AI</h3>
+            <p class="project-tagline">Context-Aware Corporate Knowledge Brain</p>
+            <p class="project-desc">
+              RAG system for processing and querying 500+ pages of SOP documents.
+              Delivers contextual AI responses with source-level citation tracking,
+              enabling teams to surface institutional knowledge instantly.
+            </p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">Gemini API</span>
+              <span class="stack-tag">MongoDB Atlas Vector Search</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">RAG</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link-btn"
+                aria-label="OpsMind AI on GitHub (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+              <span class="project-note" aria-label="Repository details available on request">Repo details on request</span>
+            </div>
+          </article>
+
+          <!-- Extensio.ai -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">🔌</div>
+              <span class="project-status active">Active</span>
+            </div>
+            <h3 class="project-name">Extensio.ai</h3>
+            <p class="project-tagline">No-Code Chrome Extension Generator</p>
+            <p class="project-desc">
+              AI-powered tool that transforms natural-language prompts into structured
+              Manifest V3 Chrome extensions. Generates extension configuration, background
+              scripts, and UI components automatically.
+            </p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">Gemini API</span>
+              <span class="stack-tag">React.js</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">Manifest V3</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link-btn"
+                aria-label="Extensio.ai on GitHub (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+              <span class="project-note">Repo details on request</span>
+            </div>
+          </article>
+
+          <!-- MyJob -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">💼</div>
+              <span class="project-status active">Active</span>
+            </div>
+            <h3 class="project-name">MyJob</h3>
+            <p class="project-tagline">Full-Stack Recruitment &amp; ATS Platform</p>
+            <p class="project-desc">
+              Employer and applicant dashboards for job posting and application tracking.
+              Features JWT authentication, REST APIs, and real-time application status updates.
+            </p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React.js</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">MongoDB</span>
+              <span class="stack-tag">JWT</span>
+              <span class="stack-tag">Express.js</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link-btn"
+                aria-label="MyJob on GitHub (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+              <span class="project-note">Repo details on request</span>
+            </div>
+          </article>
+
+          <!-- MyShop -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">🛍️</div>
+              <span class="project-status active">Active</span>
+            </div>
+            <h3 class="project-name">MyShop</h3>
+            <p class="project-tagline">Modern E-Commerce Frontend</p>
+            <p class="project-desc">
+              Responsive e-commerce interface with 10+ reusable components.
+              Implements cart, wishlist, product filtering, and authentication flows
+              using React and Recoil for state management.
+            </p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React.js</span>
+              <span class="stack-tag">Recoil</span>
+              <span class="stack-tag">Tailwind CSS</span>
+              <span class="stack-tag">Firebase</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link-btn"
+                aria-label="MyShop on GitHub (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+              <span class="project-note">Repo details on request</span>
+            </div>
+          </article>
+
+          <!-- Actify -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">📅</div>
+              <span class="project-status concept">In Dev</span>
+            </div>
+            <h3 class="project-name">Actify</h3>
+            <p class="project-tagline">AI-Powered Academic Execution Platform</p>
+            <p class="project-desc">
+              Academic planner that turns deadlines into daily micro-task schedules.
+              Incorporates workload balancing and procrastination-risk detection to
+              help students stay on track.
+            </p>
+            <div class="project-stack" aria-label="Technologies used">
+              <span class="stack-tag">React.js</span>
+              <span class="stack-tag">Gemini API</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">MongoDB</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link-btn"
+                aria-label="Actify on GitHub (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+              <span class="project-note">Repo details on request</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="container">
+        <p class="section-label">Academic Background</p>
+        <h2 class="section-title" id="education-title">Education</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="education-grid">
+
+          <div class="edu-card primary">
+            <p class="edu-level">Undergraduate</p>
+            <h3 class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</h3>
+            <p class="edu-institution">Shri Ramswaroop Memorial University, Barabanki, UP</p>
+            <div class="edu-meta">
+              <span>Present</span>
+              <span>B.Tech CSE</span>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <p class="edu-level">Senior Secondary (XII) — CBSE</p>
+            <h3 class="edu-degree">Science Stream</h3>
+            <p class="edu-institution">Aliganj Montessori School, Lucknow</p>
+            <div class="edu-meta">
+              <span>74.4%</span>
+              <span>CBSE Board</span>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <p class="edu-level">Secondary (X) — CBSE</p>
+            <h3 class="edu-degree">General Studies</h3>
+            <p class="edu-institution">Aliganj Montessori School, Lucknow</p>
+            <div class="edu-meta">
+              <span>81.8%</span>
+              <span>Distinction</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Achievements -->
+        <div class="achievements-section">
+          <h3 class="achievements-title">Achievements &amp; Competitions</h3>
+          <div class="achievements-list" role="list" aria-label="Achievements and competitions">
+            <div class="achievement-item" role="listitem">
+              <span class="achievement-icon" aria-hidden="true">🏆</span>
+              <p class="achievement-text">
+                <strong>Smart India Hackathon (SIH)</strong> — Internal Round Qualifier
+              </p>
+            </div>
+            <div class="achievement-item" role="listitem">
+              <span class="achievement-icon" aria-hidden="true">🥇</span>
+              <p class="achievement-text">
+                <strong>CodeX (Viveka 5.0)</strong> — Top Performer
+              </p>
+            </div>
+            <div class="achievement-item" role="listitem">
+              <span class="achievement-icon" aria-hidden="true">🥇</span>
+              <p class="achievement-text">
+                <strong>Hack-a-thon (Viveka 5.0)</strong> — Top Performer, SRMU
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="languages-section" aria-label="Languages spoken">
+          <div class="lang-badge">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+            English — Read, Write &amp; Speak
+          </div>
+          <div class="lang-badge">
+            <span class="flag" aria-hidden="true">🇮🇳</span>
+            Hindi — Read, Write &amp; Speak
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <div class="contact-grid">
+          <!-- Left: contact info -->
+          <div>
+            <h3 class="contact-info-title">Let's talk.</h3>
+            <p class="contact-info-desc">
+              I'm open to internship opportunities, junior developer roles, and collaborative projects.
+              If you're working on something interesting or have a question about my work, feel free to reach out.
+            </p>
+
+            <div class="contact-links">
+              <a
+                href="mailto:suryanshsinghchauhanthakur@gmail.com"
+                class="contact-link-item"
+                aria-label="Send an email to Suryansh"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                suryanshsinghchauhanthakur@gmail.com
+              </a>
+              <a
+                href="tel:+918874518917"
+                class="contact-link-item"
+                aria-label="Call Suryansh"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                +91 88745 18917
+              </a>
+              <a
+                href="https://linkedin.com/in/suryansh-singh-thakur"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+                aria-label="LinkedIn profile (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                linkedin.com/in/suryansh-singh-thakur
+              </a>
+              <a
+                href="https://github.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+                aria-label="GitHub profile (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                github.com/suryanshsingh07
+              </a>
+              <a
+                href="https://leetcode.com/suryanshsingh07"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link-item"
+                aria-label="LeetCode profile (opens in new tab)"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.038-1.9l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.535-1.387-.552-1.902-.038l-10.1 10.101c-.981.982-1.494 2.337-1.494 3.835 0 1.498.513 2.895 1.494 3.875l4.347 4.361c.981.979 2.337 1.452 3.834 1.452s2.853-.512 3.835-1.494l2.609-2.637c.514-.514.496-1.365-.039-1.9s-1.386-.553-1.899-.039zM20.811 13.01H10.666c-.702 0-1.27.604-1.27 1.346s.568 1.346 1.27 1.346h10.145c.701 0 1.27-.604 1.27-1.346s-.569-1.346-1.27-1.346z"/></svg>
+                leetcode.com/suryanshsingh07
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: contact form -->
+          <div class="contact-form-wrapper">
+            <h3 class="contact-form-title">Send a Message</h3>
+            <p class="form-note" id="form-note">
+              ⚠️ Demo form — this is a frontend-only project. Your message will not be emailed or stored.
+              To contact me directly, please use the email or LinkedIn links on the left.
+            </p>
+
+            <!-- Form content (hidden after success) -->
+            <div class="form-content" id="contact-form-content">
+              <form id="contact-form" novalidate aria-describedby="form-note">
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">
+                    Name <span class="required" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Your full name"
+                    autocomplete="name"
+                    aria-required="true"
+                    aria-describedby="name-error"
+                  />
+                  <span class="form-error" id="name-error" role="alert" aria-live="polite">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                    Please enter your name.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">
+                    Email <span class="required" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    class="form-input"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    aria-required="true"
+                    aria-describedby="email-error"
+                  />
+                  <span class="form-error" id="email-error" role="alert" aria-live="polite">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                    Please enter a valid email address.
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-message">
+                    Message <span class="required" aria-hidden="true">*</span>
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    class="form-textarea"
+                    placeholder="What would you like to say?"
+                    rows="5"
+                    aria-required="true"
+                    aria-describedby="message-error"
+                  ></textarea>
+                  <span class="form-error" id="message-error" role="alert" aria-live="polite">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+                    Please enter a message (minimum 10 characters).
+                  </span>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit" id="contact-submit">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <!-- Success state -->
+            <div class="form-success" id="contact-success" aria-live="polite">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <h3>Message received!</h3>
+              <p>
+                Thanks for reaching out. This is a demo form, so no message was sent — but I appreciate
+                the thought! To actually reach me, email me at
+                <a href="mailto:suryanshsinghchauhanthakur@gmail.com" style="color:var(--clr-accent)">suryanshsinghchauhanthakur@gmail.com</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span>&lt;</span>Suryansh<span>/&gt;</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <p class="footer-copy">
+        © 2026 Suryansh Singh. Built with HTML, CSS &amp; JavaScript. No frameworks harmed.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Scroll back to top" title="Back to top">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexbox & CSS Grid Practice — Skill Nexis Week 1</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg:     #0D1117;
+      --bg2:    #161B22;
+      --bg3:    #21262D;
+      --border: #30363D;
+      --accent: #4F8EF7;
+      --text:   #E6EDF3;
+      --muted:  #8B949E;
+      --subtle: #6E7681;
+      --success:#3FB950;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.3);
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem,5vw,3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ===== SECTION WRAPPER ===== */
+    .exercise {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exercise:last-child { border-bottom: none; }
+
+    .exercise-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .exercise-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .exercise-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 620px;
+    }
+
+    .code-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 16px;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .code-hint .prop { color: #79C0FF; }
+    .code-hint .val  { color: #56D364; }
+
+    /* ===== DEMO BOXES ===== */
+    .demo-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ============================================================
+       EXERCISE 1 — FLEXBOX BASICS
+       ============================================================ */
+    .flex-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .flex-row .demo-box { flex: 1; }
+    .flex-row .demo-box:nth-child(2) { flex: 2; background: rgba(79,142,247,0.08); border-color: rgba(79,142,247,0.3); color: var(--accent); }
+
+    /* ============================================================
+       EXERCISE 2 — FLEX ALIGNMENT
+       ============================================================ */
+    .flex-align-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      min-height: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .flex-align-container .demo-box {
+      padding: 0.5rem 1rem;
+      min-width: 80px;
+    }
+
+    .flex-align-container .demo-box:nth-child(1) { height: 40px; }
+    .flex-align-container .demo-box:nth-child(2) { height: 70px; }
+    .flex-align-container .demo-box:nth-child(3) { height: 55px; }
+    .flex-align-container .demo-box:nth-child(4) { height: 85px; }
+
+    /* ============================================================
+       EXERCISE 3 — FLEX WRAP / RESPONSIVE CARDS
+       ============================================================ */
+    .flex-card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .flex-card {
+      flex: 1 1 220px; /* flex-grow, flex-shrink, flex-basis */
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 200ms;
+    }
+
+    .flex-card:hover { border-color: rgba(79,142,247,0.5); }
+
+    .flex-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .flex-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .flex-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       EXERCISE 4 — CSS GRID BASICS
+       ============================================================ */
+    .grid-basic {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .grid-basic .demo-box:nth-child(1) {
+      grid-column: span 2;
+      background: rgba(79,142,247,0.08);
+      border-color: rgba(79,142,247,0.3);
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       EXERCISE 5 — CSS GRID AREAS (Layout)
+       ============================================================ */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 60px 1fr 50px;
+      grid-template-areas:
+        "header  header"
+        "sidebar main"
+        "footer  footer";
+      gap: 0.75rem;
+      min-height: 320px;
+    }
+
+    .grid-layout .area-header  { grid-area: header;  background: rgba(79,142,247,0.12); border-color: rgba(79,142,247,0.3); color: var(--accent); }
+    .grid-layout .area-sidebar { grid-area: sidebar; background: rgba(63,185,80,0.08);  border-color: rgba(63,185,80,0.3); color: #3FB950; }
+    .grid-layout .area-main    { grid-area: main;    background: var(--bg2); }
+    .grid-layout .area-footer  { grid-area: footer;  background: rgba(210,153,34,0.08); border-color: rgba(210,153,34,0.3); color: #D29922; }
+
+    /* ============================================================
+       EXERCISE 6 — AUTO-FILL/AUTO-FIT RESPONSIVE GRID
+       ============================================================ */
+    .grid-auto {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 200ms, border-color 200ms;
+    }
+
+    .grid-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79,142,247,0.4);
+    }
+
+    .grid-card-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .grid-card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .grid-card-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       EXERCISE 7 — COMPLEX MAGAZINE GRID
+       ============================================================ */
+    .mag-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 120px);
+      gap: 0.75rem;
+    }
+
+    .mag-grid .m1 { grid-column: span 2; grid-row: span 2; background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.3); color: var(--accent); }
+    .mag-grid .m2 { grid-row: span 2; background: rgba(63,185,80,0.08); border-color: rgba(63,185,80,0.3); color: #3FB950; }
+    .mag-grid .m3 { background: var(--bg2); }
+    .mag-grid .m4 { grid-column: span 2; background: rgba(210,153,34,0.08); border-color: rgba(210,153,34,0.3); color: #D29922; }
+    .mag-grid .m5 { background: var(--bg2); }
+    .mag-grid .m6 { grid-column: span 3; background: rgba(248,81,73,0.08); border-color: rgba(248,81,73,0.3); color: #F85149; }
+
+    /* ============================================================
+       EXERCISE 8 — HOLY GRAIL LAYOUT (Flexbox)
+       ============================================================ */
+    .holy-grail {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 280px;
+    }
+
+    .hg-header, .hg-footer {
+      background: rgba(79,142,247,0.08);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hg-footer { border-bottom: none; border-top: 1px solid var(--border); }
+
+    .hg-body {
+      display: flex;
+      flex: 1;
+    }
+
+    .hg-sidebar {
+      width: 140px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      padding: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hg-main {
+      flex: 1;
+      padding: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .hg-aside {
+      width: 120px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border-left: 1px solid var(--border);
+      padding: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       RESPONSIVE OVERRIDES
+       ============================================================ */
+    @media (max-width: 768px) {
+      .grid-basic { grid-template-columns: 1fr 1fr; }
+      .grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "main" "sidebar" "footer";
+      }
+      .mag-grid { grid-template-columns: 1fr 1fr; }
+      .hg-body { flex-direction: column; }
+      .hg-sidebar, .hg-aside { width: 100%; border-right: none; border-left: none; border-bottom: 1px solid var(--border); }
+    }
+
+    @media (max-width: 480px) {
+      .grid-basic { grid-template-columns: 1fr; }
+      .grid-basic .demo-box:nth-child(1) { grid-column: span 1; }
+      .flex-row { flex-direction: column; }
+      .mag-grid { grid-template-columns: 1fr; }
+      .mag-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="badge">Practice Exercise E</div>
+    <h1>Flexbox &amp; CSS Grid</h1>
+    <p>Eight interactive layout exercises demonstrating core Flexbox and CSS Grid concepts with responsive adaptations.</p>
+  </header>
+
+  <!-- ===== EX 1: Flex Row ===== -->
+  <section class="exercise" aria-labelledby="ex1-title">
+    <p class="exercise-label">Flexbox · Exercise 1</p>
+    <h2 class="exercise-title" id="ex1-title">Flex Row with Proportional Sizing</h2>
+    <p class="exercise-desc">
+      Three items in a row. The middle item uses <code>flex: 2</code> to take twice the space of its siblings.
+    </p>
+    <div class="code-hint">
+      <span class="prop">display</span>: <span class="val">flex</span>;  &nbsp;
+      <span class="prop">flex</span>: <span class="val">1</span> / <span class="val">2</span> / <span class="val">1</span>;
+    </div>
+    <div class="flex-row" role="list" aria-label="Flex row demo">
+      <div class="demo-box" role="listitem">flex: 1</div>
+      <div class="demo-box" role="listitem">flex: 2 (double width)</div>
+      <div class="demo-box" role="listitem">flex: 1</div>
+    </div>
+  </section>
+
+  <!-- ===== EX 2: Flex Alignment ===== -->
+  <section class="exercise" aria-labelledby="ex2-title">
+    <p class="exercise-label">Flexbox · Exercise 2</p>
+    <h2 class="exercise-title" id="ex2-title">Alignment — <code>align-items: center</code>, <code>justify-content: space-between</code></h2>
+    <p class="exercise-desc">
+      Items of varying heights are vertically centred within the container, spaced evenly along the main axis.
+    </p>
+    <div class="code-hint">
+      <span class="prop">align-items</span>: <span class="val">center</span>;  &nbsp;
+      <span class="prop">justify-content</span>: <span class="val">space-between</span>;
+    </div>
+    <div class="flex-align-container" role="list" aria-label="Flex alignment demo">
+      <div class="demo-box" role="listitem">A</div>
+      <div class="demo-box" role="listitem">B (tall)</div>
+      <div class="demo-box" role="listitem">C</div>
+      <div class="demo-box" role="listitem">D (taller)</div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--muted);">All items are vertically centred despite different heights. ↑</p>
+  </section>
+
+  <!-- ===== EX 3: Flex Wrap / Responsive Cards ===== -->
+  <section class="exercise" aria-labelledby="ex3-title">
+    <p class="exercise-label">Flexbox · Exercise 3</p>
+    <h2 class="exercise-title" id="ex3-title">Responsive Card Row with <code>flex-wrap</code></h2>
+    <p class="exercise-desc">
+      Cards use <code>flex: 1 1 220px</code> — they grow and shrink freely but collapse to new rows when the viewport gets narrow.
+    </p>
+    <div class="code-hint">
+      <span class="prop">flex-wrap</span>: <span class="val">wrap</span>;  &nbsp;
+      <span class="prop">flex</span>: <span class="val">1 1 220px</span>;
+    </div>
+    <div class="flex-card-grid" role="list" aria-label="Responsive flex cards">
+      <div class="flex-card" role="listitem">
+        <div class="flex-card-icon" aria-hidden="true">⚡</div>
+        <h3>Performance</h3>
+        <p>Optimised build pipeline for fast load times.</p>
+      </div>
+      <div class="flex-card" role="listitem">
+        <div class="flex-card-icon" aria-hidden="true">🔒</div>
+        <h3>Security</h3>
+        <p>JWT-based auth with role-based access control.</p>
+      </div>
+      <div class="flex-card" role="listitem">
+        <div class="flex-card-icon" aria-hidden="true">📱</div>
+        <h3>Responsive</h3>
+        <p>Mobile-first layouts that adapt to any screen.</p>
+      </div>
+      <div class="flex-card" role="listitem">
+        <div class="flex-card-icon" aria-hidden="true">🤖</div>
+        <h3>AI-Powered</h3>
+        <p>RAG pipelines for context-aware responses.</p>
+      </div>
+      <div class="flex-card" role="listitem">
+        <div class="flex-card-icon" aria-hidden="true">🌐</div>
+        <h3>Deployable</h3>
+        <p>Vercel, Netlify, or Render one-command deploys.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EX 4: CSS Grid Basics ===== -->
+  <section class="exercise" aria-labelledby="ex4-title">
+    <p class="exercise-label">CSS Grid · Exercise 4</p>
+    <h2 class="exercise-title" id="ex4-title">3-Column Grid with <code>grid-column: span 2</code></h2>
+    <p class="exercise-desc">
+      First cell spans two columns using <code>grid-column: span 2</code>. The remaining cells fill naturally.
+    </p>
+    <div class="code-hint">
+      <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;  &nbsp;
+      <span class="prop">grid-column</span>: <span class="val">span 2</span>;
+    </div>
+    <div class="grid-basic" role="list" aria-label="Basic grid demo">
+      <div class="demo-box" role="listitem">Span 2 columns</div>
+      <div class="demo-box" role="listitem">Col 3</div>
+      <div class="demo-box" role="listitem">Col 1</div>
+      <div class="demo-box" role="listitem">Col 2</div>
+      <div class="demo-box" role="listitem">Col 3</div>
+    </div>
+  </section>
+
+  <!-- ===== EX 5: Grid Template Areas ===== -->
+  <section class="exercise" aria-labelledby="ex5-title">
+    <p class="exercise-label">CSS Grid · Exercise 5</p>
+    <h2 class="exercise-title" id="ex5-title">Named Grid Areas — Classic Page Layout</h2>
+    <p class="exercise-desc">
+      Using <code>grid-template-areas</code> to create a header–sidebar–main–footer layout without absolute positioning.
+    </p>
+    <div class="code-hint">
+      <span class="prop">grid-template-areas</span>: <br />
+      &nbsp;&nbsp;"<span class="val">header  header</span>" <br />
+      &nbsp;&nbsp;"<span class="val">sidebar main</span>" <br />
+      &nbsp;&nbsp;"<span class="val">footer  footer</span>";
+    </div>
+    <div class="grid-layout" aria-label="Grid areas layout demo">
+      <div class="demo-box area-header">Header (grid-area: header)</div>
+      <div class="demo-box area-sidebar">Sidebar</div>
+      <div class="demo-box area-main" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem;">Main Content Area</div>
+      <div class="demo-box area-footer">Footer (grid-area: footer)</div>
+    </div>
+  </section>
+
+  <!-- ===== EX 6: Auto-Fill Responsive Grid ===== -->
+  <section class="exercise" aria-labelledby="ex6-title">
+    <p class="exercise-label">CSS Grid · Exercise 6</p>
+    <h2 class="exercise-title" id="ex6-title">Auto-Fill Responsive Grid — <code>minmax</code></h2>
+    <p class="exercise-desc">
+      Columns are created automatically using <code>auto-fill</code> with <code>minmax(180px, 1fr)</code>. No media queries needed.
+      Resize the window to see the column count adapt.
+    </p>
+    <div class="code-hint">
+      <span class="prop">grid-template-columns</span>: <span class="val">repeat(auto-fill, minmax(180px, 1fr))</span>;
+    </div>
+    <div class="grid-auto" role="list" aria-label="Auto-fill grid demo">
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">01</span>
+        <span class="grid-card-title">React.js</span>
+        <span class="grid-card-sub">Component-based UI</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">02</span>
+        <span class="grid-card-title">Node.js</span>
+        <span class="grid-card-sub">Server-side runtime</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">03</span>
+        <span class="grid-card-title">MongoDB</span>
+        <span class="grid-card-sub">NoSQL database</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">04</span>
+        <span class="grid-card-title">Express.js</span>
+        <span class="grid-card-sub">Web framework</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">05</span>
+        <span class="grid-card-title">Vite</span>
+        <span class="grid-card-sub">Build tool</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">06</span>
+        <span class="grid-card-title">Tailwind</span>
+        <span class="grid-card-sub">Utility CSS</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">07</span>
+        <span class="grid-card-title">Recoil</span>
+        <span class="grid-card-sub">State management</span>
+      </div>
+      <div class="grid-card" role="listitem">
+        <span class="grid-card-num">08</span>
+        <span class="grid-card-title">Gemini API</span>
+        <span class="grid-card-sub">AI integration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EX 7: Magazine Grid ===== -->
+  <section class="exercise" aria-labelledby="ex7-title">
+    <p class="exercise-label">CSS Grid · Exercise 7</p>
+    <h2 class="exercise-title" id="ex7-title">Magazine / Masonry-style Grid with Spans</h2>
+    <p class="exercise-desc">
+      Editorial grid with items spanning different columns and rows, creating a visually varied layout common in news and portfolio sites.
+    </p>
+    <div class="code-hint">
+      <span class="prop">grid-column</span>: <span class="val">span 2</span>;  &nbsp;
+      <span class="prop">grid-row</span>: <span class="val">span 2</span>;
+    </div>
+    <div class="mag-grid" role="list" aria-label="Magazine grid demo">
+      <div class="demo-box m1" role="listitem">Featured (2×2)</div>
+      <div class="demo-box m2" role="listitem">Tall (1×2)</div>
+      <div class="demo-box m3" role="listitem">Small</div>
+      <div class="demo-box m4" role="listitem">Wide (2×1)</div>
+      <div class="demo-box m5" role="listitem">Small</div>
+      <div class="demo-box m6" role="listitem">Full Width (3×1)</div>
+    </div>
+  </section>
+
+  <!-- ===== EX 8: Holy Grail Layout ===== -->
+  <section class="exercise" aria-labelledby="ex8-title">
+    <p class="exercise-label">Flexbox · Exercise 8</p>
+    <h2 class="exercise-title" id="ex8-title">Holy Grail Layout — Flexbox</h2>
+    <p class="exercise-desc">
+      The classic "Holy Grail" web layout: full-width header and footer with a three-column middle section (sidebar · main · aside),
+      implemented purely with nested Flexbox containers.
+    </p>
+    <div class="code-hint">
+      <span class="prop">display</span>: <span class="val">flex</span>; &nbsp; <span class="prop">flex-direction</span>: <span class="val">column</span>;<br />
+      .hg-body { <span class="prop">display</span>: <span class="val">flex</span>; <span class="prop">flex</span>: <span class="val">1</span>; }
+    </div>
+    <div class="holy-grail" aria-label="Holy grail layout demo">
+      <div class="hg-header">⬆ Header (full width)</div>
+      <div class="hg-body">
+        <div class="hg-sidebar">
+          ← Sidebar<br /><br />
+          Nav Link 1<br />
+          Nav Link 2<br />
+          Nav Link 3
+        </div>
+        <main class="hg-main">
+          Main content area — this is the primary reading zone. It flexes to fill all remaining horizontal space
+          thanks to <code>flex: 1</code>, regardless of how wide the sidebar and aside are.
+        </main>
+        <div class="hg-aside">
+          Aside →<br /><br />
+          Widget<br />
+          Ads
+        </div>
+      </div>
+      <div class="hg-footer">⬇ Footer (full width)</div>
+    </div>
+  </section>
+
+</body>
+</html>

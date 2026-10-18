@@ -1,0 +1,36 @@
+/* ============================================================
+   React Components Practice — Global Styles
+   Design tokens match the portfolio theme
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:         #0D1117;
+  --bg2:        #161B22;
+  --bg3:        #21262D;
+  --surface:    #21262D;
+  --border:     #30363D;
+  --accent:     #4F8EF7;
+  --accent-h:   #6FA3FA;
+  --accent-dim: rgba(79,142,247,0.12);
+  --text:       #E6EDF3;
+  --muted:      #8B949E;
+  --subtle:     #6E7681;
+  --success:    #3FB950;
+  --error:      #F85149;
+  --warn:       #D29922;
+  --font:       'Inter', system-ui, sans-serif;
+  --mono:       'JetBrains Mono', 'Fira Code', monospace;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --ease:       cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; }

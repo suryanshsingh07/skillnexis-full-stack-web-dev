@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Validation — Practice Exercise</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg:          #0D1117;
+      --surface:     #161B22;
+      --surface-2:   #21262D;
+      --border:      #30363D;
+      --accent:      #4F8EF7;
+      --text:        #E6EDF3;
+      --muted:       #8B949E;
+      --subtle:      #6E7681;
+      --success:     #3FB950;
+      --error:       #F85149;
+      --warning:     #D29922;
+      --radius:      8px;
+      --ease:        cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .page-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ===== FORM CARD ===== */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--subtle);
+      background: rgba(210,153,34,0.08);
+      border: 1px solid rgba(210,153,34,0.25);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    label .req {
+      color: var(--error);
+      margin-left: 2px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--subtle); }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79,142,247,0.15);
+    }
+
+    input.error, textarea.error {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(248,81,73,0.1);
+    }
+
+    input.valid, textarea.valid {
+      border-color: var(--success);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* Field with icon wrapper */
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper input {
+      padding-right: 38px;
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px; height: 16px;
+      display: none;
+    }
+
+    .input-icon.show-valid   { display: block; color: var(--success); }
+    .input-icon.show-error   { display: block; color: var(--error); }
+
+    /* Error text */
+    .field-error {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      color: var(--error);
+      margin-top: 6px;
+    }
+
+    .field-error.show { display: flex; }
+    .field-error svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* Character counter */
+    .char-counter {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .char-counter.warn { color: var(--warning); }
+    .char-counter.over { color: var(--error); }
+
+    /* Password strength */
+    .strength-bar {
+      display: flex;
+      gap: 3px;
+      margin-top: 6px;
+    }
+
+    .strength-segment {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      transition: background 200ms;
+    }
+
+    .strength-segment.weak   { background: var(--error); }
+    .strength-segment.medium { background: var(--warning); }
+    .strength-segment.strong { background: var(--success); }
+
+    .strength-label {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      margin-top: 4px;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 11px 24px;
+      background: var(--accent);
+      color: #0D1117;
+      border: none;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 150ms, transform 150ms, box-shadow 150ms;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: #6FA3FA;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79,142,247,0.3);
+    }
+
+    .submit-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Success state */
+    .success-banner {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem;
+      background: rgba(63,185,80,0.06);
+      border: 1px solid rgba(63,185,80,0.25);
+      border-radius: 12px;
+    }
+
+    .success-banner.show { display: flex; }
+    .success-banner svg {
+      width: 52px; height: 52px;
+      color: var(--success);
+      margin-bottom: 1rem;
+    }
+
+    .success-banner h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-banner p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .reset-btn {
+      padding: 8px 22px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 150ms, color 150ms;
+    }
+
+    .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Summary error */
+    .error-summary {
+      display: none;
+      background: rgba(248,81,73,0.08);
+      border: 1px solid rgba(248,81,73,0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--error);
+    }
+
+    .error-summary.show { display: block; }
+
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <p class="page-label">Practice Exercise B</p>
+    <h1 class="page-title">Form Validation</h1>
+    <p class="page-desc">
+      Real-time validation with accessible error messages, keyboard navigation, visual feedback, and a demo success state.
+    </p>
+
+    <!-- Success state (shown after valid submit) -->
+    <div class="success-banner" id="success-banner" role="alert" aria-live="polite">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <h2>Form submitted! ✓</h2>
+      <p>
+        All fields passed validation. This is a <strong>demo form</strong> — no data was sent or stored.
+        In production you would wire this to a backend API or email service.
+      </p>
+      <button class="reset-btn" id="reset-btn" type="button">Try Again</button>
+    </div>
+
+    <!-- Form card -->
+    <div class="form-card" id="form-card">
+      <p class="form-note" id="form-disclaimer">
+        ⚠️ Demo form — data is not sent or stored anywhere.
+      </p>
+
+      <!-- Error summary for screen readers / accessibility -->
+      <div class="error-summary" id="error-summary" role="alert" aria-live="polite"></div>
+
+      <form id="validation-form" novalidate aria-describedby="form-disclaimer">
+
+        <!-- Name row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="v-first-name">
+              First Name <span class="req" aria-hidden="true">*</span>
+            </label>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="v-first-name"
+                name="firstName"
+                placeholder="John"
+                autocomplete="given-name"
+                aria-required="true"
+                aria-describedby="first-name-err"
+              />
+              <svg class="input-icon" id="v-first-name-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            </div>
+            <div class="field-error" id="first-name-err" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="v-last-name">
+              Last Name <span class="req" aria-hidden="true">*</span>
+            </label>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="v-last-name"
+                name="lastName"
+                placeholder="Doe"
+                autocomplete="family-name"
+                aria-required="true"
+                aria-describedby="last-name-err"
+              />
+              <svg class="input-icon" id="v-last-name-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            </div>
+            <div class="field-error" id="last-name-err" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="v-email">
+            Email Address <span class="req" aria-hidden="true">*</span>
+          </label>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="v-email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              aria-required="true"
+              aria-describedby="email-err"
+            />
+            <svg class="input-icon" id="v-email-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          </div>
+          <div class="field-error" id="email-err" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="v-password">
+            Password <span class="req" aria-hidden="true">*</span>
+          </label>
+          <input
+            type="password"
+            id="v-password"
+            name="password"
+            placeholder="At least 8 characters"
+            autocomplete="new-password"
+            aria-required="true"
+            aria-describedby="pass-err pass-strength-label"
+          />
+          <div class="strength-bar" aria-hidden="true" id="strength-bar">
+            <div class="strength-segment" id="seg1"></div>
+            <div class="strength-segment" id="seg2"></div>
+            <div class="strength-segment" id="seg3"></div>
+            <div class="strength-segment" id="seg4"></div>
+          </div>
+          <p class="strength-label" id="pass-strength-label" aria-live="polite"></p>
+          <div class="field-error" id="pass-err" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Phone (optional) -->
+        <div class="form-group">
+          <label for="v-phone">Phone Number <span style="color:var(--subtle);font-weight:400;">(optional)</span></label>
+          <input
+            type="tel"
+            id="v-phone"
+            name="phone"
+            placeholder="+91 98765 43210"
+            autocomplete="tel"
+            aria-describedby="phone-err"
+          />
+          <div class="field-error" id="phone-err" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="v-message">
+            Message <span class="req" aria-hidden="true">*</span>
+          </label>
+          <textarea
+            id="v-message"
+            name="message"
+            placeholder="Tell us what's on your mind… (min 20, max 500 characters)"
+            aria-required="true"
+            aria-describedby="msg-err msg-counter"
+          ></textarea>
+          <p class="char-counter" id="msg-counter" aria-live="polite">0 / 500</p>
+          <div class="field-error" id="msg-err" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;margin-bottom:1.5rem;">
+          <input
+            type="checkbox"
+            id="v-terms"
+            name="terms"
+            style="width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--accent);"
+            aria-required="true"
+            aria-describedby="terms-err"
+          />
+          <label for="v-terms" style="font-size:0.85rem;font-weight:400;color:var(--muted);cursor:pointer;">
+            I agree to the <a href="#" style="color:var(--accent);" tabindex="0">Terms of Service</a> and <a href="#" style="color:var(--accent);" tabindex="0">Privacy Policy</a>.
+            <span class="req" aria-hidden="true">*</span>
+          </label>
+        </div>
+        <div class="field-error" id="terms-err" role="alert" style="margin-top:-1rem;margin-bottom:1rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          <span>You must accept the terms to continue.</span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          Submit Form
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       FORM VALIDATION
+       ============================================================ */
+    const form          = document.getElementById('validation-form');
+    const formCard      = document.getElementById('form-card');
+    const successBanner = document.getElementById('success-banner');
+    const errorSummary  = document.getElementById('error-summary');
+    const resetBtn      = document.getElementById('reset-btn');
+
+    // Helpers
+    function showError(input, iconEl, errorEl, msg) {
+      input.classList.add('error');
+      input.classList.remove('valid');
+      if (iconEl) { iconEl.classList.remove('show-valid'); iconEl.classList.add('show-error'); }
+      errorEl.querySelector('span').textContent = msg;
+      errorEl.classList.add('show');
+      input.setAttribute('aria-invalid', 'true');
+    }
+
+    function showValid(input, iconEl, errorEl) {
+      input.classList.remove('error');
+      input.classList.add('valid');
+      if (iconEl) { iconEl.classList.add('show-valid'); iconEl.classList.remove('show-error'); }
+      errorEl.classList.remove('show');
+      input.setAttribute('aria-invalid', 'false');
+    }
+
+    function clearState(input, iconEl, errorEl) {
+      input.classList.remove('error', 'valid');
+      if (iconEl) { iconEl.classList.remove('show-valid', 'show-error'); }
+      errorEl.classList.remove('show');
+      input.removeAttribute('aria-invalid');
+    }
+
+    // Field configs
+    const fields = {
+      firstName: {
+        input: document.getElementById('v-first-name'),
+        icon:  document.getElementById('v-first-name-icon'),
+        error: document.getElementById('first-name-err'),
+        validate(v) {
+          if (!v) return 'First name is required.';
+          if (v.length < 2) return 'First name must be at least 2 characters.';
+          return null;
+        }
+      },
+      lastName: {
+        input: document.getElementById('v-last-name'),
+        icon:  document.getElementById('v-last-name-icon'),
+        error: document.getElementById('last-name-err'),
+        validate(v) {
+          if (!v) return 'Last name is required.';
+          if (v.length < 2) return 'Last name must be at least 2 characters.';
+          return null;
+        }
+      },
+      email: {
+        input: document.getElementById('v-email'),
+        icon:  document.getElementById('v-email-icon'),
+        error: document.getElementById('email-err'),
+        validate(v) {
+          if (!v) return 'Email address is required.';
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Please enter a valid email address.';
+          return null;
+        }
+      },
+      password: {
+        input: document.getElementById('v-password'),
+        icon:  null,
+        error: document.getElementById('pass-err'),
+        validate(v) {
+          if (!v) return 'Password is required.';
+          if (v.length < 8) return 'Password must be at least 8 characters.';
+          return null;
+        }
+      },
+      message: {
+        input: document.getElementById('v-message'),
+        icon:  null,
+        error: document.getElementById('msg-err'),
+        validate(v) {
+          if (!v) return 'Message is required.';
+          if (v.length < 20) return 'Message must be at least 20 characters.';
+          if (v.length > 500) return 'Message must not exceed 500 characters.';
+          return null;
+        }
+      }
+    };
+
+    // Validate a single field
+    function validateField(key) {
+      const { input, icon, error, validate } = fields[key];
+      const msg = validate(input.value.trim());
+      if (msg) { showError(input, icon, error, msg); return false; }
+      showValid(input, icon, error);
+      return true;
+    }
+
+    // Blur handlers for real-time feedback
+    Object.keys(fields).forEach(key => {
+      const { input } = fields[key];
+      input.addEventListener('blur', () => {
+        if (input.value.trim()) validateField(key);
+      });
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') {
+          validateField(key);
+        }
+      });
+    });
+
+    // Password strength
+    const passInput = fields.password.input;
+    const segments = [document.getElementById('seg1'), document.getElementById('seg2'), document.getElementById('seg3'), document.getElementById('seg4')];
+    const strengthLabel = document.getElementById('pass-strength-label');
+
+    function calcStrength(v) {
+      let score = 0;
+      if (v.length >= 8)  score++;
+      if (v.length >= 12) score++;
+      if (/[A-Z]/.test(v) && /[a-z]/.test(v)) score++;
+      if (/[0-9]/.test(v) && /[^A-Za-z0-9]/.test(v)) score++;
+      return score;
+    }
+
+    passInput.addEventListener('input', () => {
+      const v = passInput.value;
+      const score = v.length ? calcStrength(v) : 0;
+      const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+      const classes = ['', 'weak', 'medium', 'medium', 'strong'];
+      segments.forEach((seg, i) => {
+        seg.className = 'strength-segment' + (i < score ? ` ${classes[score]}` : '');
+      });
+      strengthLabel.textContent = v.length ? `Password strength: ${labels[score]}` : '';
+    });
+
+    // Character counter
+    const msgInput = fields.message.input;
+    const counter  = document.getElementById('msg-counter');
+
+    msgInput.addEventListener('input', () => {
+      const len = msgInput.value.length;
+      counter.textContent = `${len} / 500`;
+      counter.className = 'char-counter' + (len > 500 ? ' over' : len > 400 ? ' warn' : '');
+    });
+
+    // Phone optional validation
+    const phoneInput = document.getElementById('v-phone');
+    const phoneErr   = document.getElementById('phone-err');
+
+    phoneInput.addEventListener('blur', () => {
+      const v = phoneInput.value.trim();
+      if (v && !/^[+\d][\d\s\-()]{7,}$/.test(v)) {
+        phoneInput.classList.add('error');
+        phoneErr.querySelector('span').textContent = 'Please enter a valid phone number.';
+        phoneErr.classList.add('show');
+      } else {
+        phoneInput.classList.remove('error');
+        phoneErr.classList.remove('show');
+      }
+    });
+
+    // Submit
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const results = Object.keys(fields).map(validateField);
+      const termsEl  = document.getElementById('v-terms');
+      const termsErr = document.getElementById('terms-err');
+      const termsOk  = termsEl.checked;
+      termsErr.classList.toggle('show', !termsOk);
+
+      const allValid = results.every(Boolean) && termsOk;
+
+      if (allValid) {
+        errorSummary.classList.remove('show');
+        formCard.style.display = 'none';
+        successBanner.classList.add('show');
+        successBanner.focus();
+      } else {
+        // Build accessible error summary
+        const errors = [];
+        Object.entries(fields).forEach(([key, cfg]) => {
+          const msg = cfg.validate(cfg.input.value.trim());
+          if (msg) errors.push(msg);
+        });
+        if (!termsOk) errors.push('You must accept the terms to continue.');
+
+        errorSummary.innerHTML = `<strong>Please fix the following errors:</strong><ul style="margin-top:6px;padding-left:1.2em;">${errors.map(m => `<li>${m}</li>`).join('')}</ul>`;
+        errorSummary.classList.add('show');
+
+        // Focus first invalid field
+        const firstInvalidKey = Object.keys(fields).find(k => {
+          return fields[k].validate(fields[k].input.value.trim()) !== null;
+        });
+        if (firstInvalidKey) fields[firstInvalidKey].input.focus();
+      }
+    });
+
+    // Reset
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      Object.keys(fields).forEach(key => {
+        const { input, icon, error } = fields[key];
+        clearState(input, icon, error);
+      });
+      segments.forEach(s => s.className = 'strength-segment');
+      strengthLabel.textContent = '';
+      counter.textContent = '0 / 500';
+      document.getElementById('terms-err').classList.remove('show');
+      errorSummary.classList.remove('show');
+      formCard.style.display = '';
+      successBanner.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
