@@ -22,13 +22,20 @@ skillnexis-full-stack-web-dev/
 │   ├── react-components/               # 5 Reusable React UI components
 │   └── react-blog/                     # React Tech Blog with search, filters & reader modal
 │
-└── week-02/                            # Week 2: React Fundamentals & Node.js Backend Development
+├── week-02/                            # Week 2: React Fundamentals & Node.js Backend Development
     ├── README.md                       # Comprehensive Week 2 documentation
     ├── react-fundamentals/             # React Router app with ProductCard, Counter, TodoApp, CSS Modules
     ├── todo-rest-api/                  # To-Do List REST API with MongoDB/Mongoose (16 tests)
     ├── user-authentication-api/        # User Authentication API with bcrypt & JWT (12 tests)
     ├── notes-app-backend/              # Notes Backend with cross-user ownership isolation (9 tests)
     └── postman/                        # Postman collections & local environment configuration
+│
+└── week-03/                            # Week 3: Full Stack Integration (React + Express + MongoDB)
+    ├── README.md                       # Comprehensive Week 3 documentation
+    ├── fullstack-todo/                 # Full Stack To-Do App (React client + Express server)
+    ├── image-upload/                   # Multer Image Upload (React client + Express server)
+    ├── task-manager/                   # Mini Project: Task Manager (React client + Express server)
+    └── postman/                        # 4 Postman collections + local environment configuration
 ```
 
 ---
@@ -64,3 +71,14 @@ skillnexis-full-stack-web-dev/
 - **Security & Auth:** JSON Web Tokens (`jsonwebtoken`), `bcryptjs` password hashing, CORS, input sanitation.
 - **Quality Assurance & Testing:** Jest, Supertest, Oxlint.
 - **Tools:** Postman, Git, GitHub.
+
+---
+
+### [Week 3: Full Stack Integration (React + Express + MongoDB)](./week-03/README.md)
+- **Practice Set (User Management REST API):** Complete Mongoose User model, bcrypt 10-round password hashing, JWT authentication, and full CRUD operations (`POST /api/users/register`, `POST /api/users/login`, `GET /api/users/me`, `GET /api/users`, `GET /api/users/:id`, `PATCH /api/users/:id`, `DELETE /api/users/:id`).
+- **Assignment 1 (Full Stack To-Do Application):** React 19 + Vite frontend connected to Express + MongoDB backend with Context API auth state, protected routes, centralized Axios service layer, task CRUD, status filtering, and live search.
+- **Assignment 2 (Image Upload Feature with Multer):** Backend `multipart/form-data` endpoint with 5MB size limit, MIME validation (JPEG, PNG, WebP), sanitized unique filenames, static serving, and React client with `URL.createObjectURL()` live preview, revocation cleanup, progress indicator, and gallery.
+- **Mini Project (Task Manager Application):** Complete production-grade task tracking application with user registration/login, JWT authentication, strict user data isolation, task priorities (`low`, `medium`, `high`), statuses (`pending`, `in-progress`, `completed`), due dates, title search, stats cards, and responsive UI.
+- **Postman Workspace:** 4 collections (`user-management`, `todo-api`, `image-upload`, `task-manager`) and unified `local.postman_environment.json`.
+- **Automated QA:** Jest + Supertest test suites with in-memory database mocks.
+- 👉 **[Read the complete Week 3 documentation](./week-03/README.md)**
