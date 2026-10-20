@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d",
+    "name": "SkillNexis Week 2 — Notes App Backend API",
+    "description": "Comprehensive Postman test collection for Notes App Backend API covering JWT protected CRUD operations, tag filtering, and strict user ownership isolation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/health",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02. Register User (Obtains Auth Token)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "if (res.token) {",
+              "    pm.environment.set('authToken', res.token);",
+              "    console.log('Saved notes authToken');",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Suryansh Singh\",\n  \"email\": \"notes.author@example.com\",\n  \"password\": \"SecurePass2026!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/auth/register",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "auth", "register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03. Login User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "if (res.token) {",
+              "    pm.environment.set('authToken', res.token);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"notes.author@example.com\",\n  \"password\": \"SecurePass2026!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/auth/login",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04. Create Note (Stores noteId in Environment)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "pm.test('Status code is 201', () => pm.response.to.have.status(201));",
+              "if (res.data && res.data._id) {",
+              "    pm.environment.set('noteId', res.data._id);",
+              "    console.log('Saved noteId:', res.data._id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"MERN Stack Architecture Notes\",\n  \"content\": \"Express handles HTTP routing and middleware, Mongoose manages document schemas with validation, and React provides component-driven UI.\",\n  \"tags\": [\"Architecture\", \"MERN\", \"Backend\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05. List All My Notes",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06. Filter Notes by Tag",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes?tag=Architecture",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes"],
+          "query": [
+            { "key": "tag", "value": "Architecture" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07. Get Note by ID (Using {{noteId}})",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08. Update Note",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"MERN Stack Architecture Notes (Revised)\",\n  \"tags\": [\"Architecture\", \"MERN\", \"BestPractices\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09. Delete Note (Using {{noteId}})",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Error: Missing Bearer Token (Expect 401)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11. Error: Create Note Missing Content (Expect 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Note without content field\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "12. Security Test: Cross-User Access Attempt (Expect 404)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl_notes}}/api/notes/507f1f77bcf86cd799439099",
+          "host": ["{{baseUrl_notes}}"],
+          "path": ["api", "notes", "507f1f77bcf86cd799439099"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

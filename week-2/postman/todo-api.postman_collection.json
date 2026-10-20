@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "c1a2b3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "SkillNexis Week 2 — To-Do List REST API",
+    "description": "Comprehensive Postman test collection for To-Do List REST API covering CRUD operations, validation, and error states.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/health",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02. Create Task (Stores taskId in Environment)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "pm.test('Status code is 201', () => pm.response.to.have.status(201));",
+              "if (res.data && res.data._id) {",
+              "    pm.environment.set('taskId', res.data._id);",
+              "    console.log('Saved taskId:', res.data._id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Complete SkillNexis Week 2 Assignment\",\n  \"description\": \"Build React fundamentals app and three Express REST APIs with tests and Postman collections.\",\n  \"completed\": false\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03. List All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04. List Completed Tasks Filter",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks?completed=true",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks"],
+          "query": [
+            { "key": "completed", "value": "true" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05. Get Task by ID (Using {{taskId}})",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks/{{taskId}}",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06. Update Task (Mark Completed & Update Title)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Complete SkillNexis Week 2 Assignment (In Review)\",\n  \"completed\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks/{{taskId}}",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07. Delete Task (Using {{taskId}})",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks/{{taskId}}",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08. Error Case: Missing Task Title (Expect 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Missing required title field\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09. Error Case: Malformed Object ID (Expect 400)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks/invalid-malformed-id-123",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks", "invalid-malformed-id-123"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Error Case: Non-Existent Task ID (Expect 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl_todo}}/api/tasks/507f1f77bcf86cd799439011",
+          "host": ["{{baseUrl_todo}}"],
+          "path": ["api", "tasks", "507f1f77bcf86cd799439011"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
