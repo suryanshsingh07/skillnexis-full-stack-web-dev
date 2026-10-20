@@ -19,7 +19,7 @@ Every deliverable specified in the SkillNexis Week 2 assignment guidelines has b
 ## 🗂️ Week 2 Project Directory Index
 
 ```text
-week-02/
+week-2/ (week-02/)
 ├── README.md                           # Master Week 2 technical documentation & test guide
 │
 ├── react-fundamentals/                 # Deliverable A: React Fundamentals & Router App
