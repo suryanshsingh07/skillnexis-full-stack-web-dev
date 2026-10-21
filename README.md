@@ -3,8 +3,8 @@
 > **Candidate:** Suryansh Singh  
 > **Role:** Full Stack Developer  
 > **Location:** Lucknow, Uttar Pradesh, India  
-> **Email:** [suryanshsinghchauhanthakur@gmail.com](mailto:suryanshsinghchauhanthakur@gmail.com) | **Phone:** +91-8874518917  
-> **Profiles:** [Portfolio](https://suryanshsingh.vercel.app) · [LinkedIn](https://linkedin.com/in/suryansh-singh-thakur) · [GitHub](https://github.com/suryanshSingh07) · [LeetCode](https://leetcode.com/suryanshsingh07)
+> **Email:** [suryanshsinghchauhanthakur@gmail.com](mailto:suryanshsinghchauhanthakur@gmail.com)
+> **Profiles:** [Portfolio](https://suryanshsingh.vercel.app) · [LinkedIn](https://linkedin.com/in/suryansh-singh-thakur) · [LeetCode](https://leetcode.com/suryanshsingh07)
 
 ---
 
