@@ -12,7 +12,14 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/" className={styles.brand} onClick={closeMobile}>
-          <span>⚛️</span>
+          <svg width="22" height="22" viewBox="-11.5 -10.23174 23 20.46348" fill="none" style={{ verticalAlign: 'middle' }}>
+            <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
+            <g stroke="#61dafb" strokeWidth="1" fill="none">
+              <ellipse rx="11" ry="4.2" />
+              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+            </g>
+          </svg>
           <span>ReactFundamentals</span>
           <span className={styles.badge}>Week 2</span>
         </Link>

@@ -175,7 +175,12 @@ export const DashboardPage = () => {
         </div>
       ) : tasks.length === 0 ? (
         <div className="card" style={{ textAlign: 'center', padding: '3.5rem 1.5rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🗂️</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+              <path d="M2 10h20" />
+            </svg>
+          </div>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f9fafb' }}>No Tasks Match Filter</h3>
           <p style={{ color: '#9ca3af', maxWidth: '420px', margin: '0.5rem auto 1.5rem', fontSize: '0.9rem' }}>
             {statusFilter || priorityFilter || searchTerm

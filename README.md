@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Repository Overview
+## Repository Overview
 
 This repository houses all weekly assignments and mini-projects for the **SkillNexis Full Stack Web Development (MERN) Internship**.
 
@@ -30,17 +30,24 @@ skillnexis-full-stack-web-dev/
 │   ├── notes-app-backend/              # Notes Backend with cross-user ownership isolation (9 tests)
 │   └── postman/                        # Postman collections & local environment configuration
 │
-└── week-03/                            # Week 3: Full Stack Integration (React + Express + MongoDB)
-    ├── README.md                       # Comprehensive Week 3 documentation
-    ├── fullstack-todo/                 # Full Stack To-Do App (React client + Express server)
-    ├── image-upload/                   # Multer Image Upload (React client + Express server)
-    ├── task-manager/                   # Mini Project: Task Manager (React client + Express server)
-    └── postman/                        # 4 Postman collections + local environment configuration
+├── week-3/                             # Week 3: Full Stack Integration (React + Express + MongoDB)
+│   ├── README.md                       # Comprehensive Week 3 documentation
+│   ├── fullstack-todo/                 # Full Stack To-Do App (React client + Express server)
+│   ├── image-upload/                   # Multer Image Upload (React client + Express server)
+│   ├── task-manager/                   # Mini Project: Task Manager (React client + Express server)
+│   └── postman/                        # 4 Postman collections + local environment configuration
+│
+└── week-4/                             # Week 4: Capstone Project & Production Deployment
+    ├── README.md                       # Comprehensive Week 4 Capstone documentation
+    ├── client/                         # Full-featured React 19 + Vite E-Commerce storefront
+    ├── server/                         # Express.js + MongoDB Atlas REST API with authoritative checkout
+    ├── postman/                        # Postman collection & local environment configuration
+    └── screenshots/                    # Visual documentation & workflow guides
 ```
 
 ---
 
-## 📅 Weekly Curriculum & Deliverables
+## Weekly Curriculum & Deliverables
 
 ### [Week 1: Modern Frontend & Vanilla Web Foundations](./week-1/README.md)
 - **Deliverable A:** Personal Developer Portfolio with editorial dark theme, skills matrix, projects, and contact form.
@@ -50,7 +57,7 @@ skillnexis-full-stack-web-dev/
 - **Deliverable E:** Interactive Flexbox vs. CSS Grid side-by-side comparison lab.
 - **Deliverable F:** 5 reusable React UI components (`Header`, `Footer`, `Card`, `Button`, `Form`).
 - **Deliverable G:** Dynamic React Blog interface with 12 technical articles, search, tag filters, and reader modal.
-- 👉 **[Read the complete Week 1 documentation](./week-1/README.md)**
+- **[Read the complete Week 1 documentation](./week-1/README.md)**
 
 ---
 
@@ -60,11 +67,11 @@ skillnexis-full-stack-web-dev/
 - **Assignment 2 (User Authentication API):** Secure user registration with duplicate prevention, bcrypt 10-round password encryption, login with JWT token issuance, and protected `/api/auth/me` route with Bearer auth middleware. 12 automated security tests.
 - **Mini Project (Notes App Backend):** Complete JWT-protected Notes CRUD API with **strict cross-user ownership isolation** ensuring users can only read, update, or delete their own notes. 9 automated tests.
 - **Postman Workspace:** 3 complete collections with automated test scripts and a unified environment file.
-- 👉 **[Read the complete Week 2 documentation](./week-2/README.md)**
+- **[Read the complete Week 2 documentation](./week-2/README.md)**
 
 ---
 
-## 🛠️ Global Technology Stack
+## Global Technology Stack
 
 - **Frontend:** React 19, React Router v6, Vite, Vanilla CSS3 (Custom properties & CSS Modules), HTML5 semantic markup.
 - **Backend:** Node.js, Express.js, MongoDB, Mongoose ODM.
@@ -74,11 +81,24 @@ skillnexis-full-stack-web-dev/
 
 ---
 
-### [Week 3: Full Stack Integration (React + Express + MongoDB)](./week-03/README.md)
+### [Week 3: Full Stack Integration (React + Express + MongoDB)](./week-3/README.md)
 - **Practice Set (User Management REST API):** Complete Mongoose User model, bcrypt 10-round password hashing, JWT authentication, and full CRUD operations (`POST /api/users/register`, `POST /api/users/login`, `GET /api/users/me`, `GET /api/users`, `GET /api/users/:id`, `PATCH /api/users/:id`, `DELETE /api/users/:id`).
 - **Assignment 1 (Full Stack To-Do Application):** React 19 + Vite frontend connected to Express + MongoDB backend with Context API auth state, protected routes, centralized Axios service layer, task CRUD, status filtering, and live search.
 - **Assignment 2 (Image Upload Feature with Multer):** Backend `multipart/form-data` endpoint with 5MB size limit, MIME validation (JPEG, PNG, WebP), sanitized unique filenames, static serving, and React client with `URL.createObjectURL()` live preview, revocation cleanup, progress indicator, and gallery.
 - **Mini Project (Task Manager Application):** Complete production-grade task tracking application with user registration/login, JWT authentication, strict user data isolation, task priorities (`low`, `medium`, `high`), statuses (`pending`, `in-progress`, `completed`), due dates, title search, stats cards, and responsive UI.
 - **Postman Workspace:** 4 collections (`user-management`, `todo-api`, `image-upload`, `task-manager`) and unified `local.postman_environment.json`.
 - **Automated QA:** Jest + Supertest test suites with in-memory database mocks.
-- 👉 **[Read the complete Week 3 documentation](./week-03/README.md)**
+- **[Read the complete Week 3 documentation](./week-3/README.md)**
+
+---
+
+### [Week 4: Capstone Project & Production Deployment (NexisStore)](./week-4/README.md)
+- **Capstone Application (NexisStore):** Production-grade full-stack MERN e-commerce platform featuring curated storefront catalogs, product details, stock validation, shopping cart persistence, and secure checkout.
+- **Authoritative Backend Pricing & Stock Deduction:** Database-backed price, delivery, and GST tax calculations that prevent client-side cart tampering, with automatic stock decrementing and cancellation restoration.
+- **Authentication & RBAC:** User signup/login with bcrypt 10-round hashing, JWT tokens, Bearer auth middleware, role-based admin guards, and rate limiting.
+- **Administrator Portal:** Executive revenue and order fulfillment dashboard, inventory management with add/edit/delete product operations, and live order status updating (`processing`, `shipped`, `delivered`, `cancelled`).
+- **Automated QA & Integration Testing:** Comprehensive Jest + Supertest test suites covering authentication, product CRUD, inventory mutations, and cross-user order ownership isolation.
+- **Postman Workspace:** Complete 16-endpoint collection (`ecommerce-api-collection.json`) with automated test scripts and unified environment file (`local.postman_environment.json`).
+- **Production Deployment Configuration:** Pre-configured Vercel frontend (with SPA route rewrites in `vercel.json`), Render Node.js backend with `/api/health` monitoring, and MongoDB Atlas database clustering.
+- **[Read the complete Week 4 Capstone documentation](./week-4/README.md)**
+

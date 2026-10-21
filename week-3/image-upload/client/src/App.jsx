@@ -183,8 +183,12 @@ export const App = () => {
             borderRadius: '8px',
             marginBottom: '1.25rem',
             fontSize: '0.9rem'
-          }}>
-            ⚠️ {errorMessage}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'text-bottom', marginRight: '0.4rem' }}>
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            {errorMessage}
           </div>
         )}
 
@@ -198,7 +202,10 @@ export const App = () => {
             marginBottom: '1.25rem',
             fontSize: '0.9rem'
           }}>
-            ✅ {statusMessage.text}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'text-bottom', marginRight: '0.4rem' }}>
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            {statusMessage.text}
             <div style={{ fontSize: '0.8rem', color: '#9ca3af', marginTop: '0.35rem' }}>
               File URL: <a href={statusMessage.data.url} target="_blank" rel="noreferrer" style={{ color: '#818cf8', wordBreak: 'break-all' }}>{statusMessage.data.url}</a>
             </div>
@@ -219,7 +226,13 @@ export const App = () => {
               accept="image/jpeg,image/png,image/webp"
               style={{ display: 'none' }}
             />
-            <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🖼️</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                <circle cx="9" cy="9" r="2" />
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+              </svg>
+            </div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f9fafb' }}>
               Click to browse or drag & drop an image
             </h3>
@@ -301,8 +314,14 @@ export const App = () => {
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f9fafb' }}>
             Uploaded Images Gallery ({gallery.length})
           </h2>
-          <button onClick={loadGallery} className="btn-secondary" style={{ padding: '0.4rem 0.85rem', fontSize: '0.8rem' }}>
-            🔄 Refresh
+          <button onClick={loadGallery} className="btn-secondary" style={{ padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+              <path d="M16 21h5v-5" />
+            </svg>
+            Refresh
           </button>
         </div>
 

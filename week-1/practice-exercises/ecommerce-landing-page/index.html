@@ -810,7 +810,7 @@
           aria-label="Open cart. 0 items."
           aria-haspopup="dialog"
         >
-          🛒 Cart
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:text-bottom;margin-right:4px;"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Cart
           <span class="cart-badge" id="cart-badge" aria-live="polite" aria-label="Cart item count">0</span>
         </button>
       </div>
@@ -937,7 +937,9 @@
 
       <div class="cart-items" id="cart-items-list">
         <div class="cart-empty" id="cart-empty">
-          <div class="icon" aria-hidden="true">🛒</div>
+          <div class="icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
           <p>Your cart is empty.</p>
         </div>
       </div>
@@ -964,26 +966,32 @@
   <!-- Footer -->
   <footer>
     <p>MyShop — Practice Exercise D &bull; Skill Nexis Week 1 &bull; Built by <a href="https://suryanshsingh.vercel.app" target="_blank" rel="noopener">Suryansh Singh</a></p>
-    <p style="margin-top:6px;font-size:0.72rem;">⚠️ Demo store — no real products, payments, or orders.</p>
+    <p style="margin-top:6px;font-size:0.72rem;">Demo store — no real products, payments, or orders.</p>
   </footer>
 
   <script>
     /* ============================================================
        PRODUCT DATA
        ============================================================ */
+    const SVG_KB = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.001M10 8h.001M14 8h.001M18 8h.001M6 12h.001M10 12h.001M14 12h.001M18 12h.001M7 16h10"/></svg>`;
+    const SVG_LAPTOP = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>`;
+    const SVG_AUDIO = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>`;
+    const SVG_MONITOR = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`;
+    const SVG_ACCESSORY = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="6" cy="12" r="1"/><circle cx="10" cy="12" r="1"/><line x1="14" y1="12" x2="18" y2="12"/></svg>`;
+
     const PRODUCTS = [
-      { id: 1,  name: 'Keychron K8 Pro Wireless',    category: 'Keyboards',   price: 10499, original: 12999, rating: 4.7, reviews: 382, emoji: '⌨️', badge: 'hot',  stock: 12 },
-      { id: 2,  name: 'ASUS ZenBook 14 OLED',        category: 'Laptops',     price: 79999, original: 89999, rating: 4.6, reviews: 274, emoji: '💻', badge: 'sale', stock: 5  },
-      { id: 3,  name: 'Sony WH-1000XM5',             category: 'Headphones',  price: 24999, original: 29990, rating: 4.9, reviews: 1204,emoji: '🎧', badge: 'hot',  stock: 8  },
-      { id: 4,  name: 'LG 27GP850-B 165Hz Monitor',  category: 'Monitors',    price: 34999, original: 41000, rating: 4.8, reviews: 609, emoji: '🖥️', badge: null,   stock: 3  },
-      { id: 5,  name: 'Logitech MX Keys S',           category: 'Keyboards',   price: 8499,  original: 9999,  rating: 4.5, reviews: 428, emoji: '⌨️', badge: 'new',  stock: 20 },
-      { id: 6,  name: 'Anker 733 GaNPrime Hub',       category: 'Accessories', price: 6499,  original: 7499,  rating: 4.4, reviews: 183, emoji: '🔌', badge: null,   stock: 15 },
-      { id: 7,  name: 'Samsung 49" Odyssey G9',       category: 'Monitors',    price: 149999,original: 175000,rating: 4.7, reviews: 152, emoji: '🖥️', badge: null,   stock: 2  },
-      { id: 8,  name: 'Drop + CTRL Mechanical TKL',  category: 'Keyboards',   price: 15999, original: 18999, rating: 4.6, reviews: 319, emoji: '⌨️', badge: null,   stock: 7  },
-      { id: 9,  name: 'Apple AirPods Pro (2nd Gen)', category: 'Headphones',  price: 22900, original: 26900, rating: 4.8, reviews: 2341,emoji: '🎧', badge: null,   stock: 25 },
-      { id: 10, name: 'Dell XPS 15 (2025)',           category: 'Laptops',     price: 149999,original: 165000,rating: 4.5, reviews: 411, emoji: '💻', badge: 'new',  stock: 4  },
-      { id: 11, name: 'Elgato Stream Deck MK.2',      category: 'Accessories', price: 13999, original: 15999, rating: 4.7, reviews: 567, emoji: '🎮', badge: null,   stock: 9  },
-      { id: 12, name: 'Bose QC45 Headphones',         category: 'Headphones',  price: 19999, original: 24000, rating: 4.5, reviews: 788, emoji: '🎧', badge: 'sale', stock: 11 },
+      { id: 1,  name: 'Keychron K8 Pro Wireless',    category: 'Keyboards',   price: 10499, original: 12999, rating: 4.7, reviews: 382, emoji: SVG_KB, badge: 'hot',  stock: 12 },
+      { id: 2,  name: 'ASUS ZenBook 14 OLED',        category: 'Laptops',     price: 79999, original: 89999, rating: 4.6, reviews: 274, emoji: SVG_LAPTOP, badge: 'sale', stock: 5  },
+      { id: 3,  name: 'Sony WH-1000XM5',             category: 'Headphones',  price: 24999, original: 29990, rating: 4.9, reviews: 1204,emoji: SVG_AUDIO, badge: 'hot',  stock: 8  },
+      { id: 4,  name: 'LG 27GP850-B 165Hz Monitor',  category: 'Monitors',    price: 34999, original: 41000, rating: 4.8, reviews: 609, emoji: SVG_MONITOR, badge: null,   stock: 3  },
+      { id: 5,  name: 'Logitech MX Keys S',           category: 'Keyboards',   price: 8499,  original: 9999,  rating: 4.5, reviews: 428, emoji: SVG_KB, badge: 'new',  stock: 20 },
+      { id: 6,  name: 'Anker 733 GaNPrime Hub',       category: 'Accessories', price: 6499,  original: 7499,  rating: 4.4, reviews: 183, emoji: SVG_ACCESSORY, badge: null,   stock: 15 },
+      { id: 7,  name: 'Samsung 49" Odyssey G9',       category: 'Monitors',    price: 149999,original: 175000,rating: 4.7, reviews: 152, emoji: SVG_MONITOR, badge: null,   stock: 2  },
+      { id: 8,  name: 'Drop + CTRL Mechanical TKL',  category: 'Keyboards',   price: 15999, original: 18999, rating: 4.6, reviews: 319, emoji: SVG_KB, badge: null,   stock: 7  },
+      { id: 9,  name: 'Apple AirPods Pro (2nd Gen)', category: 'Headphones',  price: 22900, original: 26900, rating: 4.8, reviews: 2341,emoji: SVG_AUDIO, badge: null,   stock: 25 },
+      { id: 10, name: 'Dell XPS 15 (2025)',           category: 'Laptops',     price: 149999,original: 165000,rating: 4.5, reviews: 411, emoji: SVG_LAPTOP, badge: 'new',  stock: 4  },
+      { id: 11, name: 'Elgato Stream Deck MK.2',      category: 'Accessories', price: 13999, original: 15999, rating: 4.7, reviews: 567, emoji: SVG_ACCESSORY, badge: null,   stock: 9  },
+      { id: 12, name: 'Bose QC45 Headphones',         category: 'Headphones',  price: 19999, original: 24000, rating: 4.5, reviews: 788, emoji: SVG_AUDIO, badge: 'sale', stock: 11 },
     ];
 
     /* ============================================================
@@ -1072,7 +1080,7 @@
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="empty-state" role="status" aria-live="polite">
-            <div class="icon" aria-hidden="true">🔍</div>
+            <div class="icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
             <h3>No products found</h3>
             <p>Try adjusting your filters or search query.</p>
             <button class="btn btn-ghost" onclick="clearFilters()">Clear Filters</button>
@@ -1088,7 +1096,7 @@
         let badgeHtml = '';
         if (p.badge === 'new')  badgeHtml = '<span class="badge-pill badge-new">NEW</span>';
         if (p.badge === 'sale') badgeHtml = '<span class="badge-pill badge-sale">SALE</span>';
-        if (p.badge === 'hot')  badgeHtml = '<span class="badge-pill badge-hot">🔥 HOT</span>';
+        if (p.badge === 'hot')  badgeHtml = '<span class="badge-pill badge-hot">HOT</span>';
 
         return `
           <article class="product-card" aria-label="${p.name}">
@@ -1101,7 +1109,7 @@
                 aria-label="${inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}: ${p.name}"
                 aria-pressed="${inWishlist}"
               >
-                ${inWishlist ? '❤️' : '🤍'}
+                ${inWishlist ? 'Saved' : 'Save'}
               </button>
             </div>
             <div class="product-body">
@@ -1143,16 +1151,16 @@
     function toggleWishlist(id, btn) {
       if (state.wishlist.has(id)) {
         state.wishlist.delete(id);
-        btn.textContent = '🤍';
+        btn.textContent = 'Save';
         btn.classList.remove('active');
         btn.setAttribute('aria-pressed', 'false');
         showToast('Removed from wishlist.');
       } else {
         state.wishlist.add(id);
-        btn.textContent = '❤️';
+        btn.textContent = 'Saved';
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
-        showToast('Added to wishlist! ❤️');
+        showToast('Added to wishlist!');
       }
     }
 
@@ -1214,7 +1222,7 @@
       const entries = Object.entries(state.cart).filter(([,q]) => q > 0);
 
       if (entries.length === 0) {
-        list.innerHTML = `<div class="cart-empty"><div class="icon">🛒</div><p>Your cart is empty.</p></div>`;
+        list.innerHTML = `<div class="cart-empty"><div class="icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><p>Your cart is empty.</p></div>`;
         return;
       }
 

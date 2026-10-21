@@ -114,7 +114,12 @@ export default function TodoApp() {
 
       {error && (
         <div className={styles.errorMessage} role="alert">
-          ⚠ {error}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'text-bottom', marginRight: '0.35rem' }}>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          {error}
         </div>
       )}
 
@@ -157,7 +162,12 @@ export default function TodoApp() {
         </ul>
       ) : (
         <div className={styles.emptyState}>
-          <div className={styles.emptyIcon}>🎉</div>
+          <div className={styles.emptyIcon}>
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
           <h3>All caught up!</h3>
           <p>No tasks remaining. Use the input field above to create a new task.</p>
         </div>

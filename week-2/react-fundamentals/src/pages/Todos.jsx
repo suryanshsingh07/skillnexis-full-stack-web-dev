@@ -6,7 +6,11 @@ export default function Todos() {
     <div>
       <header className={styles.pageHeader}>
         <div className={styles.heroTag}>
-          <span>📝</span> Feature 3: Interactive To-Do Application
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'text-bottom', marginRight: '0.35rem' }}>
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+          Feature 3: Interactive To-Do Application
         </div>
         <h1 className={styles.title}>React State & To-Do List</h1>
         <p className={styles.subtitle}>
@@ -34,7 +38,7 @@ export default function Todos() {
           lineHeight: 1.6,
         }}
       >
-        <strong style={{ color: 'var(--text-primary)' }}>💡 Educational Note for Evaluators:</strong>
+        <strong style={{ color: 'var(--text-primary)' }}>Educational Note for Evaluators:</strong>
         <p style={{ marginTop: '0.5rem' }}>
           This client-side To-Do app uses React <code>useState</code> and <code>localStorage</code> for
           quick frontend practice. For persistent server-side MongoDB storage with REST endpoints,

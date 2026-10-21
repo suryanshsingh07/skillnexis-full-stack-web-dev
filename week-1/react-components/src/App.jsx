@@ -22,7 +22,16 @@ const NAV_LINKS = [
 
 const SOCIAL_LINKS = [
   { label: 'GitHub',   href: 'https://github.com/suryanshsingh07', icon: '⧉' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/suryansh-singh-thakur', icon: '🔗' },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/suryansh-singh-thakur',
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    )
+  },
 ];
 
 const FOOTER_LINKS = [
@@ -48,7 +57,14 @@ const FOOTER_LINKS = [
 
 const PROJECT_CARDS = [
   {
-    icon: '🧠',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="18" height="18" x="3" y="3" rx="2" />
+        <path d="M9 9h6v6H9z" />
+        <path d="M15 3v6" /><path d="M9 3v6" /><path d="M15 15v6" /><path d="M9 15v6" />
+        <path d="M3 15h6" /><path d="M3 9h6" /><path d="M15 15h6" /><path d="M15 9h6" />
+      </svg>
+    ),
     title: 'OpsMind AI',
     subtitle: 'RAG · AI',
     description: 'Context-aware corporate knowledge brain using Gemini API and MongoDB Atlas Vector Search.',
@@ -56,7 +72,11 @@ const PROJECT_CARDS = [
     badge: { label: 'Active', color: 'success' },
   },
   {
-    icon: '🔌',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
     title: 'Extensio.ai',
     subtitle: 'AI · Chrome',
     description: 'No-code Chrome extension generator from natural-language prompts.',
@@ -64,7 +84,12 @@ const PROJECT_CARDS = [
     badge: { label: 'Active', color: 'success' },
   },
   {
-    icon: '💼',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="14" x="2" y="7" rx="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    ),
     title: 'MyJob',
     subtitle: 'Full Stack · MERN',
     description: 'Recruitment and applicant tracking platform with JWT auth and REST APIs.',
@@ -73,7 +98,13 @@ const PROJECT_CARDS = [
     variant: 'featured',
   },
   {
-    icon: '🛍️',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </svg>
+    ),
     title: 'MyShop',
     subtitle: 'Frontend · React',
     description: 'E-commerce frontend with cart, wishlist, filtering, and Recoil state management.',
@@ -81,7 +112,14 @@ const PROJECT_CARDS = [
     badge: { label: 'Frontend', color: 'warn' },
   },
   {
-    icon: '📅',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="18" height="18" x="3" y="4" rx="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </svg>
+    ),
     title: 'Actify',
     subtitle: 'AI · Productivity',
     description: 'Academic planner that converts deadlines into daily micro-task schedules.',
@@ -221,7 +259,12 @@ export default function App() {
             <Card
               title="No projects yet"
               description="When the data array is empty, you can render a friendly empty state card like this one."
-              icon="📭"
+              icon={
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              }
               badge={{ label: 'Empty State', color: 'warn' }}
               footer={<Button variant="outline" size="sm">Add a project</Button>}
             />
@@ -268,7 +311,7 @@ export default function App() {
           </div>
           <Form
             title="Contact Form Demo"
-            note="⚠️ Demo form — no data is sent or stored."
+            note="Demo form — no data is sent or stored."
             fields={CONTACT_FORM_FIELDS}
             submitLabel="Send Message"
             onSubmit={(data) => console.log('Form data:', data)}

@@ -17,8 +17,11 @@ export default function SearchBar({ value, onChange, onClear, placeholder = 'Sea
       onFocusWithin={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; }}
     >
       {/* Search icon */}
-      <span style={{ padding: '0 0.75rem', color: 'var(--subtle)', fontSize: '1rem', pointerEvents: 'none' }} aria-hidden="true">
-        🔍
+      <span style={{ padding: '0 0.75rem', color: 'var(--subtle)', display: 'inline-flex', alignItems: 'center', pointerEvents: 'none' }} aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
       </span>
 
       <input

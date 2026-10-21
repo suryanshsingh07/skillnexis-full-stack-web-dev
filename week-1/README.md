@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Executive Overview
+## Executive Overview
 
 This repository contains the complete, production-grade submission for **Week 1** of the **Skill Nexis Full Stack Web Development (MERN) Internship**. The project demonstrates mastery across semantic HTML5, modern responsive CSS3 (Flexbox and CSS Grid), JavaScript DOM manipulation and form validation, reusable component-driven React architecture, and dynamic filtering with state management.
 
@@ -16,7 +16,7 @@ All components, applications, and exercises are implemented without placeholders
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```text
 week-1/
@@ -75,21 +75,21 @@ week-1/
 
 ---
 
-## 🚀 Deliverables & Requirements Matrix
+## Deliverables & Requirements Matrix
 
 | Module | Requirement | Status | Key Features |
 |---|---|---|---|
-| **Portfolio Website** | Deliverable A | ✅ Complete | Semantic HTML5, CSS Grid/Flexbox, Hero, About, Skills, Projects, Experience timeline, Education, Demo contact form. |
-| **Responsive Navbar** | Deliverable B | ✅ Complete | Mobile hamburger drawer, accessible `aria-expanded`, smooth scrolling, active link scroll spy. |
-| **Form Validation** | Deliverable C | ✅ Complete | Real-time and submit-time validation, regex email checks, inline error messages, honest demo submission state. |
-| **MyShop E-Commerce** | Deliverable D | ✅ Complete | 8 products, category filter, price sorting, live cart drawer with item count and subtotal, wishlist toggle, empty state. |
-| **Flexbox & Grid Lab** | Deliverable E | ✅ Complete | Visual comparison, 1D navigation and media card flexbox, 2D responsive auto-fit grid, holy grail layout. |
-| **React Components** | Deliverable F | ✅ Complete | 5 production-ready components (`Header`, `Footer`, `Card`, `Button`, `Form`) with prop-driven variants, state handling, and interactive sandbox. |
-| **React Tech Blog** | Deliverable G | ✅ Complete | 12 technical articles from `posts.json`, instant full-text search, category pills, tag filtering, sort by date/read-time, empty state, reader modal. |
+| **Portfolio Website** | Deliverable A | Complete | Semantic HTML5, CSS Grid/Flexbox, Hero, About, Skills, Projects, Experience timeline, Education, Demo contact form. |
+| **Responsive Navbar** | Deliverable B | Complete | Mobile hamburger drawer, accessible `aria-expanded`, smooth scrolling, active link scroll spy. |
+| **Form Validation** | Deliverable C | Complete | Real-time and submit-time validation, regex email checks, inline error messages, honest demo submission state. |
+| **MyShop E-Commerce** | Deliverable D | Complete | 8 products, category filter, price sorting, live cart drawer with item count and subtotal, wishlist toggle, empty state. |
+| **Flexbox & Grid Lab** | Deliverable E | Complete | Visual comparison, 1D navigation and media card flexbox, 2D responsive auto-fit grid, holy grail layout. |
+| **React Components** | Deliverable F | Complete | 5 production-ready components (`Header`, `Footer`, `Card`, `Button`, `Form`) with prop-driven variants, state handling, and interactive sandbox. |
+| **React Tech Blog** | Deliverable G | Complete | 12 technical articles from `posts.json`, instant full-text search, category pills, tag filtering, sort by date/read-time, empty state, reader modal. |
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Languages:** HTML5, CSS3, JavaScript (ES6+), JSX
 - **Framework & Build Tools:** React 19, Vite 8, Node.js
@@ -99,7 +99,7 @@ week-1/
 
 ---
 
-## 💻 Setup and Execution Guide
+## Setup and Execution Guide
 
 ### Prerequisites
 - Node.js (version 18 or higher recommended)
@@ -162,7 +162,7 @@ npm run lint
 
 ---
 
-## 🧪 Verification & Build Results
+## Verification & Build Results
 
 All automated checks and builds have passed:
 
@@ -202,7 +202,7 @@ dist/assets/index-Du50kuIa.js   256.88 kB │ gzip: 79.53 kB
 
 ---
 
-## 🔍 Interactive Feature Walkthrough & Testing Steps
+## Interactive Feature Walkthrough & Testing Steps
 
 ### A. Personal Portfolio (`portfolio-html-css/`)
 1. **Navigation:** Click nav links (`About`, `Skills`, `Projects`, `Experience`, `Education`, `Contact`) to verify smooth scrolling. Resize window to mobile width (<768px) and toggle the hamburger menu.
@@ -227,7 +227,7 @@ dist/assets/index-Du50kuIa.js   256.88 kB │ gzip: 79.53 kB
 
 ---
 
-## 🌐 Deployment Guidance
+## Deployment Guidance
 
 ### Deploying the Portfolio to Vercel
 1. Install Vercel CLI: `npm install -g vercel`
@@ -243,7 +243,7 @@ dist/assets/index-Du50kuIa.js   256.88 kB │ gzip: 79.53 kB
 
 ---
 
-## 📤 Submission Links
+## Submission Links
 
 - **GitHub Repository URL:** `https://github.com/suryanshsingh07/suryansh-skillnexis-week-1` *(Placeholder: replace with actual repository URL upon push)*
 - **Live Portfolio Demo (Vercel):** `https://suryanshsingh.vercel.app`
@@ -251,6 +251,6 @@ dist/assets/index-Du50kuIa.js   256.88 kB │ gzip: 79.53 kB
 
 ---
 
-## ⚖️ Honest Disclosures & Scope
+## Honest Disclosures & Scope
 - **Frontend Demonstration:** As this is a Week 1 Frontend Assignment, the contact forms and checkout buttons simulate real user flows with state handling and honest completion feedback, rather than persisting data to a live database or payment gateway.
 - **Data Integrity:** All resume information, internships, academic records, and projects represent genuine accomplishments of Suryansh Singh without fabricated statistics or credentials.

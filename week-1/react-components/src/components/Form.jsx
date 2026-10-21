@@ -127,7 +127,12 @@ export default function Form({
     return (
       <div style={formStyle} role="status" aria-live="polite">
         <div style={{ textAlign: 'center', padding: '2rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }} aria-hidden="true">✅</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }} aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
           <h3 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>Form submitted!</h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--muted)', marginBottom: '1.5rem' }}>
             All fields validated successfully. Data captured:
@@ -260,9 +265,14 @@ export default function Form({
                 <p
                   id={`${field.name}-err`}
                   role="alert"
-                  style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.78rem', color: 'var(--error)', marginTop: 5 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: 'var(--error)', marginTop: 5 }}
                 >
-                  ⚠ {errors[field.name]}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  {errors[field.name]}
                 </p>
               )}
             </div>

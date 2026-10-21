@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Executive Overview
+## Executive Overview
 
 This repository contains the complete, verified Week 2 submission for the **SkillNexis Full Stack Web Development (MERN) Internship**. This week focuses on **React Fundamentals & Multi-Page Navigation** paired with **Production-Grade Node.js/Express Backend Architecture, MongoDB/Mongoose Integration, and JWT/bcrypt Security Engineering**.
 
@@ -16,7 +16,7 @@ Every deliverable specified in the SkillNexis Week 2 assignment guidelines has b
 
 ---
 
-## 🗂️ Week 2 Project Directory Index
+## Week 2 Project Directory Index
 
 ```text
 week-2/ (week-02/)
@@ -120,7 +120,7 @@ week-2/ (week-02/)
 
 ---
 
-## 🎯 Week 2 Requirements Coverage Matrix
+## Week 2 Requirements Coverage Matrix
 
 | Area | Requirement | Project Location | Implementation Details |
 |---|---|---|---|
@@ -136,7 +136,7 @@ week-2/ (week-02/)
 
 ---
 
-## ⚙️ Prerequisites & Installation
+## Prerequisites & Installation
 
 ### Prerequisites
 - **Node.js**: v18.0.0 or higher (v22.x recommended)
@@ -145,7 +145,7 @@ week-2/ (week-02/)
 
 ---
 
-## 🚀 Execution Guide for Each Project
+## Execution Guide for Each Project
 
 ### 1. React Fundamentals Application
 ```bash
@@ -226,7 +226,7 @@ npm run dev
 
 ---
 
-## 📡 API Endpoint Reference Tables
+## API Endpoint Reference Tables
 
 ### A. To-Do List REST API (`http://localhost:5001`)
 
@@ -337,7 +337,7 @@ Content-Type: application/json
 
 ---
 
-## 📬 Postman Collection Import & Execution Guide
+## Postman Collection Import & Execution Guide
 
 1. Open **Postman**.
 2. Click **Import** (top left).
@@ -355,7 +355,7 @@ Content-Type: application/json
 
 ---
 
-## 🧪 Actual Automated Test & Build Results
+## Actual Automated Test & Build Results
 
 All automated checks and test suites were executed locally in PowerShell:
 
@@ -445,7 +445,7 @@ Time:        7.583 s
 
 ---
 
-## 🔒 Security Best Practices Implemented
+## Security Best Practices Implemented
 
 1. **Password Hashing:** Passwords are never stored in plaintext. They are encrypted using `bcryptjs` with 10 salt rounds in a Mongoose `pre('save')` hook.
 2. **Password Sanitization:** The `password` field is configured with `select: false` so it is never inadvertently returned in queries or API JSON responses.
@@ -458,7 +458,7 @@ Time:        7.583 s
 
 ---
 
-## 🌐 Optional Deployment Guidance
+## Optional Deployment Guidance
 
 ### Deploying the React App (Vercel)
 1. Navigate to `react-fundamentals/`.
@@ -480,7 +480,7 @@ Time:        7.583 s
 
 ---
 
-## ✅ Final Evaluator Checklist
+## Final Evaluator Checklist
 
 - [x] **React Practice 1:** ProductCard component created and rendered dynamically from sample data.
 - [x] **React Practice 2:** Props and state demonstrated with interactive bounds, step selector, and history log.

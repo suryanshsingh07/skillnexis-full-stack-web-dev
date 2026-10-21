@@ -9,7 +9,7 @@
 
 ---
 
-## 📌 Executive Overview
+## Executive Overview
 
 Week 3 focuses on **Full Stack Integration**: connecting modern React client applications to Express backends backed by MongoDB, with secure JWT-based user authentication, protected client routing, centralized API service layers, Multer multipart file uploads, and a full-featured Task Manager mini-project.
 
@@ -17,20 +17,20 @@ All requirements from both the **Week 3 Practice Set** and the **Week 3 Main Ass
 
 ---
 
-## 🎯 Curriculum Requirements Covered
+## Curriculum Requirements Covered
 
 | Module | Assignment / Practice | Implementation Directory | Status |
 | :--- | :--- | :--- | :--- |
-| **Practice Set** | User Management REST API (CRUD + JWT + Mongoose) | `task-manager/server` & `fullstack-todo/server` | ✅ Complete (5/5 Tasks) |
-| **Assignment 1** | Full Stack To-Do Application (React + Express + MongoDB) | `fullstack-todo/client` & `fullstack-todo/server` | ✅ Complete |
-| **Assignment 2** | Image Upload Feature with Multer & React Preview | `image-upload/client` & `image-upload/server` | ✅ Complete |
-| **Mini Project** | Task Manager Mini-Project (Full MERN with Data Isolation) | `task-manager/client` & `task-manager/server` | ✅ Complete |
-| **Postman** | 4 Collections + Local Environment File | `postman/` | ✅ Complete |
-| **Automated QA** | Jest & Supertest Integration Test Suites | All servers `tests/` | ✅ 100% Pass |
+| **Practice Set** | User Management REST API (CRUD + JWT + Mongoose) | `task-manager/server` & `fullstack-todo/server` | Complete (5/5 Tasks) |
+| **Assignment 1** | Full Stack To-Do Application (React + Express + MongoDB) | `fullstack-todo/client` & `fullstack-todo/server` | Complete |
+| **Assignment 2** | Image Upload Feature with Multer & React Preview | `image-upload/client` & `image-upload/server` | Complete |
+| **Mini Project** | Task Manager Mini-Project (Full MERN with Data Isolation) | `task-manager/client` & `task-manager/server` | Complete |
+| **Postman** | 4 Collections + Local Environment File | `postman/` | Complete |
+| **Automated QA** | Jest & Supertest Integration Test Suites | All servers `tests/` | 100% Pass |
 
 ---
 
-## 📂 Final Directory Structure
+## Final Directory Structure
 
 ```text
 week-03/
@@ -130,7 +130,7 @@ week-03/
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Frontend:** React 19, React Router DOM v6, Vite 6, Axios, Vanilla CSS3 (Custom Design System, Glassmorphism, CSS Grid & Flexbox).
 - **Backend:** Node.js, Express.js 4.x, Multer (multipart/form-data), Morgan logger, CORS, Dotenv.
@@ -140,7 +140,7 @@ week-03/
 
 ---
 
-## ⚙️ Prerequisites & Environment Setup
+## Prerequisites & Environment Setup
 
 ### Prerequisites
 - **Node.js:** v18.0.0 or higher (v22.x tested and recommended).
@@ -149,7 +149,7 @@ week-03/
 
 ---
 
-## 🚀 Installation & Running the Applications
+## Installation & Running the Applications
 
 ### 1. Assignment 1: Full Stack To-Do Application
 
@@ -214,7 +214,7 @@ npm run dev
 
 ---
 
-## 🔑 Environment Variables Reference
+## Environment Variables Reference
 
 Each server folder includes a documented `.env.example` file.
 
@@ -235,7 +235,7 @@ Each server folder includes a documented `.env.example` file.
 
 ---
 
-## 📡 API Endpoints Documentation
+## API Endpoints Documentation
 
 ### Practice Set: User Management REST API
 | Method | Endpoint | Access | Purpose |
@@ -285,7 +285,7 @@ Each server folder includes a documented `.env.example` file.
 
 ---
 
-## 🔒 Security & Data Isolation Architecture
+## Security & Data Isolation Architecture
 
 1. **Derived Ownership Isolation:**
    The backend **never trusts a client-supplied `owner` or `userId`** in request payloads. Ownership is derived solely from the cryptographically verified JWT Bearer token extracted by the `protect` middleware:
@@ -307,7 +307,7 @@ Each server folder includes a documented `.env.example` file.
 
 ---
 
-## 📬 Postman Testing Workspace
+## Postman Testing Workspace
 
 All Postman collections are located in `week-03/postman/`:
 1. `user-management.postman_collection.json`
@@ -324,7 +324,7 @@ All Postman collections are located in `week-03/postman/`:
 
 ---
 
-## 🧪 Automated Testing
+## Automated Testing
 
 Automated test suites are provided using **Jest** and **Supertest** with mock-isolated database operations so they can execute instantly and reliably in any environment without requiring an external MongoDB server:
 
@@ -344,7 +344,7 @@ npm test
 
 ---
 
-## 🌐 Production Deployment Guide
+## Production Deployment Guide
 
 ### Frontend Deployment (Vercel / Netlify)
 1. Set the root directory of the project to `week-03/task-manager/client` (or appropriate client).
@@ -363,7 +363,7 @@ npm test
 
 ---
 
-## ✅ Final Submission Checklist
+## Final Submission Checklist
 
 - [x] REST API for User Management with Mongoose, bcrypt, and JWT implemented.
 - [x] Full Stack To-Do application built with React + Vite + Express + MongoDB.
